@@ -27,7 +27,7 @@ public:
         time = t;
     }
 
-    void init(const char a[], const char b[], int c, float t) {
+    void initialize(const char a[], const char b[], int c, float t) {
         strncpy(destination1, a, sizeof(destination1) - 1);
         strncpy(destination2, b, sizeof(destination2) - 1);
         destination1[sizeof(destination1) - 1] = '\0';
