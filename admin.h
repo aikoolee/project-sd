@@ -101,7 +101,7 @@ class GraphInt;
 class GraphFloat;
 
 bool add_edge(GraphInt &g1, GraphFloat &g2) {
-    char a[30], b[30];
+    char a, b;
     int cost;
     float time;
 
