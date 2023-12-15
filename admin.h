@@ -2,6 +2,7 @@
 #include <fstream>
 #include <stdlib.h>
 #include <cstring>
+#include "customer.h"
 using namespace std;
 
 struct Admin {
@@ -58,7 +59,7 @@ bool loginAdmin(Admin A[], int n = 2) {
 }
 
 void viewCustomer() {
-    cout < "---------- VIEW CUSTOMER ----------" << endl;
+    cout << "---------- VIEW CUSTOMER ----------" << endl;
 
     int total = 0;
     ifstream f1;
@@ -68,7 +69,7 @@ void viewCustomer() {
 
     while (!f1.eof()) {
         cout << left;
-        cout << c1.name << " - " << c1.address << " - " << c1.notelp << " - " << c1.email << endl;
+        cout << c1.nama << " - " << c1.alamat << " - " << c1.notelp << " - " << c1.email << endl;
         total++;
         f1.read((char*)&c1, sizeof(Customer));
     }
@@ -78,7 +79,7 @@ void viewCustomer() {
 }
 
 void viewBooking() {
-    cout < "---------- VIEW BOOKING ----------" << endl;
+    cout << "---------- VIEW BOOKING ----------" << endl;
 
     int total = 0;
     ifstream f1;
@@ -101,15 +102,15 @@ class GraphInt;
 class GraphFloat;
 
 bool add_edge(GraphInt &g1, GraphFloat &g2) {
-    char a, b;
+    string a, b;
     int cost;
     float time;
 
     cout << "Masukkan lokasi awal: ";
-    cin.getline(a, 30, '\n');
+    cin >> a;
 
     cout << "Masukkan lokasi tujuan: ";
-    cin.getline(b, 30, '\n');
+    cin >> b;
 
     cout << "Masukkan biaya: ";
     cin >> cost;

@@ -142,7 +142,7 @@ struct Booking {
     string nama_cust;
     string email_cust;
     string tanggal;
-    string tempat[10] = {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0"};
+    string destinasi[10] = {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0"};
     int jumlah;
     int banyak_orang;
 
@@ -150,10 +150,23 @@ struct Booking {
 
     }
 
-    void book(string nama, string email, string tanggal, list<string> tempat, int jumlah, int banyak_orang) {
+    void book(string nama, string email, string tanggal, list<string> destinasi, int jumlah, int banyak_orang) {
         this->nama_cust = nama;
         this->email_cust = email;
         this->tanggal = tanggal;
-        
+        this->jumlah = jumlah;
+        this->banyak_orang = banyak_orang;
+    }
+
+    void print() {
+        cout << "Nama customer: " << nama_cust << endl;
+        cout << "Email customer: " << email_cust << endl;
+        cout << "Tanggal booking: " << tanggal << endl;
+        cout << "Destinasi wisata: ";
+        for (int i = 0; i < 10; i++) {
+            if(destinasi[i] != "0") {
+                cout << destinasi[i] << " ";
+            }
+        }
     }
 };
