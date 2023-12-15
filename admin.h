@@ -17,7 +17,7 @@ struct Admin {
         this->password = password;
     }
 
-    void login(string nama, string password) {
+    bool login(string nama, string password) {
         if (nama == this->nama && password == this->password) {
             cout << "Login success" << endl;
             return true;
