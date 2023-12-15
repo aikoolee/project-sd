@@ -98,3 +98,32 @@ void viewBooking() {
 
 class Edge;
 class GraphInt;
+class GraphFloat;
+
+bool add_edge(GraphInt &g1, GraphFloat &g2) {
+    char a[30], b[30];
+    int cost;
+    float time;
+
+    cout << "Masukkan lokasi awal: ";
+    cin.getline(a, 30, '\n');
+
+    cout << "Masukkan lokasi tujuan: ";
+    cin.getline(b, 30, '\n');
+
+    cout << "Masukkan biaya: ";
+    cin >> cost;
+
+    cout << "Masukkan jadwal keberangkatan: ";
+    cin >> time;
+
+    Edge e(a, b, cost, time);
+    fstream f3;
+    f3.open("places.txt", ios::app);
+    f3.write((char*)&e, sizeof(e));
+    f3.close();
+
+    g1.addEdge(a, b, cost);
+    g2.addEdge(a, b, time);
+    cout << "Jadwal berhasil ditambahkan" << endl;
+}
