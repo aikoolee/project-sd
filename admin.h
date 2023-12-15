@@ -58,6 +58,50 @@ bool loginAdmin(Admin A[], int n = 2) {
     return false;
 }
 
+struct Agent {
+    string nama;
+    string email;
+    string notelp;
+
+    Agent(string nama, string email, string notelp) {
+        this->nama = nama;
+        this->email = email;
+        this->notelp = notelp;
+    }
+
+    void add (string nama, string email, string notelp) {
+        this->nama = nama;
+        this->email = email;
+        this->notelp = notelp;
+    }
+
+    string getNama() {
+        return nama;
+    }
+};
+
+void readAgent(Agent A[], int &count) {
+    count = 0;
+    ifstream f1;
+    f1.open("agent.txt", ios::in);
+    int i = 0;
+    f1.read((char*)&A[i], sizeof(Agent));
+
+    while (!f1.eof()) {
+        i++;
+        f1.read((char*)&A[i], sizeof(Agent));
+    }
+
+    cout << "Read agent" << endl;
+    count = i;
+    f1.close();
+}
+
+string assign(Agent A[], int no = 10) {
+    int c = rand()%(no-1);
+    return A[c].getNama();
+}
+
 void viewCustomer() {
     cout << "---------- VIEW CUSTOMER ----------" << endl;
 

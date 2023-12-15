@@ -145,17 +145,19 @@ struct Booking {
     string destinasi[10] = {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0"};
     int jumlah;
     int banyak_orang;
+    string nama_agent;
 
     Booking(){
 
     }
 
-    void book(string nama, string email, string tanggal, list<string> destinasi, int jumlah, int banyak_orang) {
+    void book(string nama, string email, string tanggal, list<string> destinasi, int jumlah, int banyak_orang, string nama_agent) {
         this->nama_cust = nama;
         this->email_cust = email;
         this->tanggal = tanggal;
         this->jumlah = jumlah;
         this->banyak_orang = banyak_orang;
+        this->nama_agent = nama_agent;
     }
 
     void print() {
@@ -168,5 +170,7 @@ struct Booking {
                 cout << destinasi[i] << " ";
             }
         }
+        // kurang jumlah yg membingungkan itu
+        cout << "Nama agent: " << nama_agent << endl;
     }
 };
