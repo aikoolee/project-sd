@@ -142,7 +142,7 @@ struct Booking {
     string nama_cust;
     string email_cust;
     string tanggal;
-    string destinasi[10] = {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0"};
+    // string destinasi[10] = {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0"};
     int jumlah;
     int banyak_orang;
     string nama_agent;
@@ -164,12 +164,12 @@ struct Booking {
         cout << "Nama customer: " << nama_cust << endl;
         cout << "Email customer: " << email_cust << endl;
         cout << "Tanggal booking: " << tanggal << endl;
-        cout << "Destinasi wisata: ";
-        for (int i = 0; i < 10; i++) {
-            if(destinasi[i] != "0") {
-                cout << destinasi[i] << " ";
-            }
-        }
+        // cout << "Destinasi wisata: ";
+        // for (int i = 0; i < 10; i++) {
+        //     if(destinasi[i] != "0") {
+        //         cout << destinasi[i] << " ";
+        //     }
+        // }
         // kurang jumlah yg membingungkan itu
         cout << "Nama agent: " << nama_agent << endl;
     }

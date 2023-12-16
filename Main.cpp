@@ -183,49 +183,49 @@ void finding_a_custom_plan() {
     return;
 }
 
-bool choose_and_book_package(TravelPackage P, Booking& B) {
-    system("clear");
-    cin.clear();
-    fflush(stdin);
-    string email;
-    cout << "You need to have an account to make a booking.\n";
-    cout << "If you don't have an account press any key followed by 'enter', and you'd be redirected.\n";
+// bool choose_and_book_package(TravelPackage P, Booking& B) {
+//     system("clear");
+//     cin.clear();
+//     fflush(stdin);
+//     string email;
+//     cout << "You need to have an account to make a booking.\n";
+//     cout << "If you don't have an account press any key followed by 'enter', and you'd be redirected.\n";
 
-    cout << "Masukkan email:\n";
-    getline(cin, email);
-    bool exists = trees.search(email);
+//     cout << "Masukkan email:\n";
+//     getline(cin, email);
+//     bool exists = trees.search(email);
 
-    if (exists) {
-        cout << "\nMasukkan nama: ";
-        getline(cin, B.nama_cust);
-        B.email_cust = email;
-        int i = 0;
-        for (const string& s : P.destinations) {
-            B.destinasi[i] = s;
-            i++;
-        }
+//     if (exists) {
+//         cout << "\nMasukkan nama: ";
+//         getline(cin, B.nama_cust);
+//         B.email_cust = email;
+//         int i = 0;
+//         for (const string& s : P.destinations) {
+//             B.destinasi[i] = s;
+//             i++;
+//         }
 
-        B.nama_agent = assign(Agents, 10);
+//         B.nama_agent = assign(Agents, 10);
 
-        cout << "Masukkan tanggal: ";
-        getline(cin, B.tanggal);
+//         cout << "Masukkan tanggal: ";
+//         getline(cin, B.tanggal);
 
-        cout << "Masukkan jumlah orang: ";
-        cin >> B.banyak_orang;
-        B.jumlah = (P.cost) * B.banyak_orang;
+//         cout << "Masukkan jumlah orang: ";
+//         cin >> B.banyak_orang;
+//         B.jumlah = (P.cost) * B.banyak_orang;
 
-        fstream f1;
-        f1.open("bookings.txt", ios::app | ios::binary);
-        f1.write((char*)&B, sizeof(B));
-        f1.close();
+//         fstream f1;
+//         f1.open("bookings.txt", ios::app | ios::binary);
+//         f1.write((char*)&B, sizeof(B));
+//         f1.close();
 
-    }
-    else {
-        cout << "\nCreate an account to make a booking.\n";
-        return false;
-    }
-    return true;
-}
+//     }
+//     else {
+//         cout << "\nCreate an account to make a booking.\n";
+//         return false;
+//     }
+//     return true;
+// }
 
 bool execute_custom_booking(Booking &B, string destination) {
     system("clear");
@@ -267,57 +267,57 @@ bool execute_custom_booking(Booking &B, string destination) {
     return true;
 }
 
-void execute_package_booking() {
-    cout << "--------------- PLANS ---------------\n";
-    for (int i = 0; i < 10; i++) {
-        cout << i + 1 << " " << P[i].package_name << endl;
-        cout << "Price per person: " << P[i].cost << endl;
-        cout << "Number of days: " << P[i].duration << endl;
-        cout << "Places: ";
-        for (string s : P[i].destinations) {
-            cout << s << " ";
-        }
-        cout << "\n\n";
-    }
+// void execute_package_booking() {
+//     cout << "--------------- PLANS ---------------\n";
+//     for (int i = 0; i < 10; i++) {
+//         cout << i + 1 << " " << P[i].package_name << endl;
+//         cout << "Price per person: " << P[i].cost << endl;
+//         cout << "Number of days: " << P[i].duration << endl;
+//         cout << "Places: ";
+//         for (string s : P[i].destinations) {
+//             cout << s << " ";
+//         }
+//         cout << "\n\n";
+//     }
 
-    cout << "\nMasukkan pilihan:\n";
-    cout << "1: Pesan\n";
-    cout << "2: Kembali\n";
+//     cout << "\nMasukkan pilihan:\n";
+//     cout << "1: Pesan\n";
+//     cout << "2: Kembali\n";
 
-    int c;
-    cin >> c;
+//     int c;
+//     cin >> c;
 
-    if (c == 1) {
-        int choice;
-        cout << "\nMasukkan jumlah pesanan: ";
-        cin >> choice;
-        Booking B1;
-        bool done = choose_and_book_package(P[choice - 1], B1);
-        if (done) {
-            system("clear");
-            cout << "\n--------------- BOOKING CONFIRMED ---------------\n";
-            cout << "Your agent will get in touch with you soon!\n";
-            B1.print();
-            cout << "\nRedirecting you back, press any key followed by 'enter' to proceed!\n";
-            char c;
-            cin >> c;
-            loginCust();
-            return;
-        }
-        else {
-            cout << "\nSome error occured. Please try again.\n";
-            cout << "Redirecting you back, press any key followed by 'enter' to proceed!\n";
-            char c;
-            cin >> c;
-            loginCust();
-            return;
-        }
-    }
-    else {
-        loginCust();
-        return;
-    }
-}
+//     if (c == 1) {
+//         int choice;
+//         cout << "\nMasukkan jumlah pesanan: ";
+//         cin >> choice;
+//         Booking B1;
+//         bool done = choose_and_book_package(P[choice - 1], B1);
+//         if (done) {
+//             system("clear");
+//             cout << "\n--------------- BOOKING CONFIRMED ---------------\n";
+//             cout << "Your agent will get in touch with you soon!\n";
+//             B1.print();
+//             cout << "\nRedirecting you back, press any key followed by 'enter' to proceed!\n";
+//             char c;
+//             cin >> c;
+//             loginCust();
+//             return;
+//         }
+//         else {
+//             cout << "\nSome error occured. Please try again.\n";
+//             cout << "Redirecting you back, press any key followed by 'enter' to proceed!\n";
+//             char c;
+//             cin >> c;
+//             loginCust();
+//             return;
+//         }
+//     }
+//     else {
+//         loginCust();
+//         return;
+//     }
+// }
 
 bool login_customer(string& email) {
     string input_email, password;
