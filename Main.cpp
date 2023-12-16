@@ -350,7 +350,7 @@ void customer_portal() {
     int input;
     cout << "1: Buat akun\n";
     cout << "2: Lihat semua lokasi\n";
-    cout << "3: Cari paket\n";
+    cout << "3: Custom Plan\n";
     cout << "4: Pesan paket\n";
     cout << "5: Lihat pemesanan\n";
     cout << "6: Kembali\n";
