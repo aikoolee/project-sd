@@ -250,10 +250,10 @@ bool execute_custom_booking(Booking &B, string destination) {
         cout << "Masukkan tanggal: ";
         std::getline(cin, B.tanggal);
 
-        cout << "Masukkan jumlah orang: ";
-        cin >> B.banyak_orang;
+        cout << "Masukkan jumlah pesanan: ";
+        cin >> B.jumlah;
         int cost = (::distance[destination] * 2) + 20000;
-        B.jumlah = (cost)*B.banyak_orang;
+        B.jumlah = (cost)*B.jumlah;
 
         fstream f1;
         f1.open("bookings.txt", ios::app | ios::binary);
