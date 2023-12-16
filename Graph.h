@@ -211,8 +211,3 @@ void minimum_time(string src, string dest, vector <string>& path, map <string, l
             }
         }
     }
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> 4162c86866e8fc00ed4c7e9dcf94c4b55ccd3f45
