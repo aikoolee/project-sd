@@ -2,7 +2,6 @@
 #include <fstream>
 #include <stdlib.h>
 #include <cstring>
-#include "customer.h"
 using namespace std;
 
 struct Admin {
@@ -146,7 +145,7 @@ class GraphInt;
 class GraphFloat;
 
 bool add_edge(GraphInt &g1, GraphFloat &g2) {
-    string a, b;
+    char a[30], b[30];
     int cost;
     float time;
 
@@ -171,4 +170,5 @@ bool add_edge(GraphInt &g1, GraphFloat &g2) {
     g1.addEdge(a, b, cost);
     g2.addEdge(a, b, time);
     cout << "Jadwal berhasil ditambahkan" << endl;
+    return true;
 }
