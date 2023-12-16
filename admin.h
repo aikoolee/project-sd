@@ -146,15 +146,17 @@ class GraphInt;
 class GraphFloat;
 
 bool add_edge(GraphInt &g1, GraphFloat &g2) {
-    string a, b;
+    char a[30], b[30];
     int cost;
     float time;
 
     cout << "Masukkan lokasi awal: ";
-    cin >> a;
+    cin.ignore();
+    cin.getline(a, 30, '\n');
 
     cout << "Masukkan lokasi tujuan: ";
-    cin >> b;
+    cin.ignore();
+    cin.getline(b, 30, '\n');
 
     cout << "Masukkan biaya: ";
     cin >> cost;
@@ -171,4 +173,5 @@ bool add_edge(GraphInt &g1, GraphFloat &g2) {
     g1.addEdge(a, b, cost);
     g2.addEdge(a, b, time);
     cout << "Jadwal berhasil ditambahkan" << endl;
+    return true;
 }
