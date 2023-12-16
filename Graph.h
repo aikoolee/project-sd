@@ -74,21 +74,21 @@ public:
 
 void initializeTravelPackages(TravelPackage packages[], int n) {
     packages[0].package_name = "European Adventure";
-    packages[0].cost = 128000;
+    packages[0].cost = 28000000;
     packages[0].duration = 7;
     packages[0].destinations.push_back("Amsterdam");
     packages[0].destinations.push_back("Barcelona");
     packages[0].destinations.push_back("Rome");
 
     packages[1].package_name = "Mediterranean Magic";
-    packages[1].cost = 85000;
+    packages[1].cost = 30000000;
     packages[1].duration = 8;
     packages[1].destinations.push_back("Athens");
     packages[1].destinations.push_back("Nice");
     packages[1].destinations.push_back("Venice");
 
     packages[2].package_name = "Asian Expedition";
-    packages[2].cost = 160000;
+    packages[2].cost = 24000000;
     packages[2].duration = 8;
     packages[2].destinations.push_back("Tokyo");
     packages[2].destinations.push_back("Beijing");
@@ -96,48 +96,48 @@ void initializeTravelPackages(TravelPackage packages[], int n) {
     packages[2].destinations.push_back("Seoul");
 
     packages[3].package_name = "Caribbean Paradise";
-    packages[3].cost = 50000;
+    packages[3].cost = 15000000;
     packages[3].duration = 6;
     packages[3].destinations.push_back("Havana");
     packages[3].destinations.push_back("Nassau");
     packages[3].destinations.push_back("San Juan");
 
     packages[4].package_name = "Aussie Adventure";
-    packages[4].cost = 145000;
+    packages[4].cost = 27000000;
     packages[4].duration = 6;
     packages[4].destinations.push_back("Sydney");
     packages[4].destinations.push_back("Melbourne");
 
     packages[5].package_name = "South American Discovery";
-    packages[5].cost = 125000;
+    packages[5].cost = 23000000;
     packages[5].duration = 6;
     packages[5].destinations.push_back("Buenos Aires");
     packages[5].destinations.push_back("Lima");
     packages[5].destinations.push_back("Sao Paulo");
 
     packages[6].package_name = "Canadian Wilderness Retreat";
-    packages[6].cost = 155000;
+    packages[6].cost = 29000000;
     packages[6].duration = 9;
     packages[6].destinations.push_back("Banff");
     packages[6].destinations.push_back("Vancouver");
     packages[6].destinations.push_back("Toronto");
 
     packages[7].package_name = "USA West Coast Extravaganza";
-    packages[7].cost = 95000;
+    packages[7].cost = 17000000;
     packages[7].duration = 8;
     packages[7].destinations.push_back("San Francisco");
     packages[7].destinations.push_back("Los Angeles");
     packages[7].destinations.push_back("Las Vegas");
 
     packages[8].package_name = "New England Charm";
-    packages[8].cost = 105000;
+    packages[8].cost = 19000000;
     packages[8].duration = 6;
     packages[8].destinations.push_back("Boston");
     packages[8].destinations.push_back("Portland");
     packages[8].destinations.push_back("Providence");
 
     packages[9].package_name = "Alaskan Wilderness Adventure";
-    packages[9].cost = 250000;
+    packages[9].cost = 35000000;
     packages[9].duration = 11;
     packages[9].destinations.push_back("Anchorage");
     packages[9].destinations.push_back("Juneau");
