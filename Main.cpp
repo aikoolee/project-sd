@@ -523,7 +523,7 @@ int main() {
     initializeGraph();
     minimum_cost("New Delhi", parent, ::distance, cost_graph.m);
     cout << endl;
-    initializeTravelPackages(P, 10);
+    // initializeTravelPackages(P, 10);
 
     char c;
     cout << "Press any key, followed by 'enter' key, to start the program!\n";
