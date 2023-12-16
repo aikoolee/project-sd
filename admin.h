@@ -2,7 +2,6 @@
 #include <fstream>
 #include <stdlib.h>
 #include <cstring>
-#include "customer.h"
 using namespace std;
 
 struct Admin {
