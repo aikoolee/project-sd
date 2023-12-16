@@ -151,12 +151,10 @@ bool add_edge(GraphInt &g1, GraphFloat &g2) {
     float time;
 
     cout << "Masukkan lokasi awal: ";
-    cin.ignore();
-    cin.getline(a, 30, '\n');
+    cin >> a;
 
     cout << "Masukkan lokasi tujuan: ";
-    cin.ignore();
-    cin.getline(b, 30, '\n');
+    cin >> b;
 
     cout << "Masukkan biaya: ";
     cin >> cost;
