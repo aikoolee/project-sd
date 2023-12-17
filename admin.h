@@ -62,7 +62,9 @@ struct Agent {
     string email;
     string notelp;
 
-    Agent() {}
+    Agent() {
+    
+    }
 
     Agent(string nama, string email, string notelp) {
         this->nama = nama;

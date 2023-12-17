@@ -6,7 +6,7 @@
 #include <cstdlib>
 using namespace std;
 
-void loginCust();
+void customer_portal();
 
 struct treeNode {
     char data;

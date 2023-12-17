@@ -11,6 +11,5 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.3282
           ]
 C:\Users\Dora Lee\source\repos\Project SD\Project SD\Graph.h(181,23): message : see reference to function template instantiation 'std::pair<float,std::string>::pair<double,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,0>(std::pair<double,std::basic_string<char,std::char_traits<char>,std::allocator<char>>> &&) noexcept' being compiled
 C:\Users\Dora Lee\source\repos\Project SD\Project SD\Graph.h(181,13): message : see the first reference to 'std::pair<float,std::string>::pair' in 'minimum_time'
-Main.obj : error LNK2019: unresolved external symbol "void __cdecl loginCust(void)" (?loginCust@@YAXXZ) referenced in function "void __cdecl finding_a_custom_plan(void)" (?finding_a_custom_plan@@YAXXZ)
 Main.obj : error LNK2019: unresolved external symbol "bool __cdecl custom_booking(struct Booking &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?custom_booking@@YA_NAEAUBooking@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) referenced in function "void __cdecl finding_a_custom_plan(void)" (?finding_a_custom_plan@@YAXXZ)
-C:\Users\Dora Lee\source\repos\Project SD\x64\Debug\Project SD.exe : fatal error LNK1120: 2 unresolved externals
+C:\Users\Dora Lee\source\repos\Project SD\x64\Debug\Project SD.exe : fatal error LNK1120: 1 unresolved externals
