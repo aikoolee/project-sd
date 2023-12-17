@@ -1,6 +1,12 @@
 #include <iostream>
+#include <map>
+#include <cstring>
+#include "Graph.h"
+#include <cstdlib>
+#include <stdlib.h>
+#include <ctime>
 #include <string>
-#include <unordered_map>
+#include <iomanip>
 
 using namespace std;
 
@@ -46,6 +52,108 @@ bool loginAdmin(Admin A[], int n) {
     
     return false;
 }
+
+class Edge;
+class GraphInt;
+class GraphFloat;
+
+bool add_edge(GraphInt &g1, GraphFloat &g2) {
+    char a[30], b[30];
+    int cost;
+    float time;
+
+    cout << "Masukkan lokasi awal: ";
+    cin >> a;
+
+    cout << "Masukkan lokasi tujuan: ";
+    cin >> b;
+
+    cout << "Masukkan biaya: ";
+    cin >> cost;
+
+    cout << "Masukkan jadwal keberangkatan: ";
+    cin >> time;
+
+    Edge e(a, b, cost, time);
+
+    g1.addEdge(a, b, cost);
+    g2.addEdge(a, b, time);
+    cout << "Jadwal berhasil ditambahkan" << endl;
+    return true;
+}
+
+// GraphInt cost_graph;
+// GraphFloat time_graph;
+
+// void admin_portal() {
+//     bool admin_logged_in = true;
+
+//     if (admin_logged_in) {
+//         system("cls");
+//         cout << "--------------- WELCOME TO ADMIN PORTAL ---------------\n\n";
+//         int input;
+//         cout << "1: Tambah Lokasi\n";
+//         cout << "2: Lihat Semua Pelanggan\n";
+//         cout << "3: Lihat Semua Pemesanan\n";
+//         cout << "4: Kembali\n";
+//         cout << "5: Exit\n";
+//         cin >> input;
+
+//         switch (input) {
+//         case 1: {
+//             system("cls");
+//             add_edge(cost_graph, time_graph);
+//             cout << "\nPress any key, followed by 'enter' key, to navigate back!\n";
+//             char c;
+//             cin >> c;
+//             admin_portal();
+//             break;
+//         }
+//         case 2: {
+//             system("cls");
+//             viewCustomer();
+//             cout << "\nPress any key, followed by 'enter' key, to navigate back!\n";
+//             char c;
+//             cin >> c;
+//             admin_portal();
+//             break;
+//         }
+//         case 3: {
+//             viewBooking();
+//             viewCustomer();
+//             cout << "\nPress any key, followed by 'enter' key, to navigate back!\n";
+//             char c;
+//             cin >> c;
+//             admin_portal();
+//             break;
+//         }
+//         case 4: {
+//             system("cls");
+//             admin_logged_in = false;
+//             enter();
+//             break;
+//         }
+//         case 5: {
+//             system("cls");
+//             admin_logged_in = false;
+//             cout << "Thank you. We look forward to welcoming you back soon!\n";
+//             cout << "Exitting now...\n";
+//             break;
+//         }
+//         default: {
+//             cout << "\nInvalid input!\n";
+//             enter();
+//             }
+//         }
+//     }
+//     else {
+//         cout << "\nLogin failed. Please go back and enter the correct details.\n";
+//         cout << "\nPress any key, followed by 'enter' key, to navigate back!\n";
+//         char c;
+//         cin >> c;
+//         enter();
+//     }
+// }
 
 // --- AGENT ---
 
