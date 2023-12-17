@@ -133,13 +133,13 @@ void finding_a_custom_plan() {
         cout << "Redirecting you back, press any key followed by 'enter' to proceed!\n";
         char c;
         cin >> c;
-        loginCust();
+        customer_portal();
         return;
     }
     else {
         cout << "Location found!\n";
         cout << "\nFlight cost: " << ::distance[destination] << endl;
-        cout << "The minimum cost plan is: " << (2 * ::distance[destination]) + 4000000 << "Rupiah.\n\n";
+        cout << "The minimum cost plan is: " << (2 * ::distance[destination]) + 20000 << "Rupiah.\n\n";
         print_path(destination);
         cout << endl << endl;
         cout << "Masukkan pilihan:\n";
@@ -159,7 +159,7 @@ void finding_a_custom_plan() {
                 cout << "\nRedirecting you back, press any key followed by 'enter' to proceed!\n";
                 char c;
                 cin >> c;
-                loginCust();
+                customer_portal();
                 return;
             }
             else {
@@ -167,7 +167,7 @@ void finding_a_custom_plan() {
                 cout << "Redirecting you back, press any key followed by 'enter' to proceed!\n";
                 char c;
                 cin >> c;
-                loginCust();
+                customer_portal();
                 return;
             }
         }
@@ -176,7 +176,7 @@ void finding_a_custom_plan() {
             return;
         }
         else {
-            loginCust();
+            customer_portal();
             return;
         }
     }
@@ -301,7 +301,7 @@ bool execute_custom_booking(Booking &B, string destination) {
 //             cout << "\nRedirecting you back, press any key followed by 'enter' to proceed!\n";
 //             char c;
 //             cin >> c;
-//             loginCust();
+//             customer_portal();
 //             return;
 //         }
 //         else {
@@ -309,12 +309,12 @@ bool execute_custom_booking(Booking &B, string destination) {
 //             cout << "Redirecting you back, press any key followed by 'enter' to proceed!\n";
 //             char c;
 //             cin >> c;
-//             loginCust();
+//             customer_portal();
 //             return;
 //         }
 //     }
 //     else {
-//         loginCust();
+//         customer_portal();
 //         return;
 //     }
 // }
@@ -351,10 +351,10 @@ void customer_portal() {
     cout << "1: Buat akun\n";
     cout << "2: Lihat semua lokasi\n";
     cout << "3: Custom Plan\n";
-    cout << "4: Pesan paket\n";
-    cout << "5: Lihat pemesanan\n";
-    cout << "6: Kembali\n";
-    cout << "7: Exit\n";
+    // cout << "4: Pesan paket\n";
+    cout << "4: Lihat pemesanan\n";
+    cout << "5: Kembali\n";
+    cout << "6: Exit\n";
     cin >> input;
 
     switch (input) {
@@ -387,21 +387,22 @@ void customer_portal() {
         finding_a_custom_plan();
         break;
     }
-    case 4: {
+    // case 4: {
         // execute_package_booking();
-        break;
-    }
-    case 5: {
+        // break;
+    // }
+    case 4: {
         system("clear");
         string email;
         bool login_success = login_customer(email);
         if (login_success) {
-            int bookings;
+            int bookings = 0;
             cout << "--------------- YOUR BOOKINGS ---------------\n";
             fstream f1;
             f1.open("bookings.txt", ios::in);
 
             Booking B;
+
             f1.read((char*)&B, sizeof(Booking));
             while (!f1.eof()) {
                 if (B.email_cust == email) {
@@ -430,11 +431,11 @@ void customer_portal() {
         }
         break;
     }
-    case 6: {
+    case 5: {
         enter();
         break;
     }
-    case 7: {
+    case 6: {
         system("clear");
         cout << "Thank you. We look forward to welcoming you back soon!\n";
         cout << "Exitting now...\n";
