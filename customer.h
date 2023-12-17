@@ -90,7 +90,7 @@ void readCust(Tree t) {
     fstream f1;
     Customer c;
 
-    f1.open("customer.txt", ios::in|ios::binary);
+    f1.open("customers.txt", ios::in|ios::binary);
     do {
         f1.read((char*)&c, sizeof(Customer));
         string email = c.email;
@@ -128,7 +128,7 @@ bool createAcc(Tree t) {
     Customer c1(nama, alamat, email, notelp, password);
 
     fstream f1;
-    f1.open("customer.txt", ios::app|ios::binary);
+    f1.open("customers.txt", ios::app|ios::binary);
     f1.write((char*)&c1, sizeof(c1));
     f1.close();
 

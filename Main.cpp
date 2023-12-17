@@ -396,12 +396,13 @@ void customer_portal() {
         string email;
         bool login_success = login_customer(email);
         if (login_success) {
-            int bookings;
+            int bookings = 0;
             cout << "--------------- YOUR BOOKINGS ---------------\n";
             fstream f1;
             f1.open("bookings.txt", ios::in);
 
             Booking B;
+
             f1.read((char*)&B, sizeof(Booking));
             while (!f1.eof()) {
                 if (B.email_cust == email) {

@@ -28,7 +28,7 @@ struct Admin {
 
 void readAdmin(Admin A[]) {
     ifstream f1;
-    f1.open("admin.txt", ios::in);
+    f1.open("admins.txt", ios::in);
     int i = 0;
     while (!f1.eof()) {
         f1.read((char*)&A[i], sizeof(Admin));
@@ -62,6 +62,8 @@ struct Agent {
     string email;
     string notelp;
 
+    Agent() {}
+
     Agent(string nama, string email, string notelp) {
         this->nama = nama;
         this->email = email;
@@ -82,7 +84,7 @@ struct Agent {
 void readAgent(Agent A[], int &count) {
     count = 0;
     ifstream f1;
-    f1.open("agent.txt", ios::in);
+    f1.open("agents.txt", ios::in);
     int i = 0;
     f1.read((char*)&A[i], sizeof(Agent));
 
@@ -107,7 +109,7 @@ void viewCustomer() {
     int total = 0;
     ifstream f1;
     Customer c1;
-    f1.open("customer.txt", ios::in);
+    f1.open("customers.txt", ios::in);
     f1.read((char*)&c1, sizeof(Customer));
 
     while (!f1.eof()) {
@@ -127,7 +129,7 @@ void viewBooking() {
     int total = 0;
     ifstream f1;
     Booking b1;
-    f1.open("booking.txt", ios::in);
+    f1.open("bookings.txt", ios::in);
     f1.read((char*)&b1, sizeof(Booking));
     while (!f1.eof()) {
         b1.print();
