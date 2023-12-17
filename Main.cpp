@@ -52,7 +52,7 @@ void admin_portal() {
     bool success = admin_logged_in || loginAdmin(Admins, 2);
     if (success) {
         admin_logged_in = true;
-        system("clear");
+        system("cls");
         cout << "--------------- WELCOME TO ADMIN PORTAL ---------------\n\n";
         int input;
         cout << "1: Tambah Lokasi\n";
@@ -64,7 +64,7 @@ void admin_portal() {
 
         switch (input) {
         case 1: {
-            system("clear");
+            system("cls");
             add_edge(cost_graph, time_graph);
             cout << "\nPress any key, followed by 'enter' key, to navigate back!\n";
             char c;
@@ -73,7 +73,7 @@ void admin_portal() {
             break;
         }
         case 2: {
-            system("clear");
+            system("cls");
             viewCustomer();
             cout << "\nPress any key, followed by 'enter' key, to navigate back!\n";
             char c;
@@ -91,13 +91,13 @@ void admin_portal() {
             break;
         }
         case 4: {
-            system("clear");
+            system("cls");
             admin_logged_in = false;
             enter();
             break;
         }
         case 5: {
-            system("clear");
+            system("cls");
             admin_logged_in = false;
             cout << "Thank you. We look forward to welcoming you back soon!\n";
             cout << "Exitting now...\n";
@@ -118,10 +118,10 @@ void admin_portal() {
     }
 }
 
-bool custom_booking(Booking& B, string destination);
+bool execute_custom_booking(Booking& B, string destination);
 
 void finding_a_custom_plan() {
-    system("clear");
+    system("cls");
     string destination;
     cout << "--------------- CUSTOM PLAN ---------------\n\n";
     cout << "Masukkan nama tujuan: ";
@@ -150,9 +150,9 @@ void finding_a_custom_plan() {
         cin >> choice;
         if (choice == 1) {
             Booking B1;
-            bool done = custom_booking(B1, destination);
+            bool done = execute_custom_booking(B1, destination);
             if (done) {
-                system("clear");
+                system("cls");
                 cout << "--------------- BOOKING CONFIRMED ---------------\n\n";
                 cout << "Your agent will get in touch with you soon!\n";
                 B1.print();
@@ -184,7 +184,7 @@ void finding_a_custom_plan() {
 }
 
 // bool choose_and_book_package(TravelPackage P, Booking& B) {
-//     system("clear");
+//     system("cls");
 //     cin.clear();
 //     fflush(stdin);
 //     string email;
@@ -228,7 +228,7 @@ void finding_a_custom_plan() {
 // }
 
 bool execute_custom_booking(Booking &B, string destination) {
-    system("clear");
+    system("cls");
     cin.clear();
     fflush(stdin);
     string email;
@@ -345,7 +345,7 @@ bool login_customer(string& email) {
 }
 
 void customer_portal() {
-    system("clear");
+    system("cls");
     cout << "--------------- WELCOME TO THE CUSTOMER PORTAL ---------------\n";
     int input;
     cout << "1: Buat akun\n";
@@ -364,7 +364,7 @@ void customer_portal() {
         break;
     }
     case 2: {
-        system("clear");
+        system("cls");
         cout << "--------------- AVAILABLE LOCATIONS ---------------\n";
         int i = 0;
         for (auto p : m) {
@@ -392,7 +392,7 @@ void customer_portal() {
         // break;
     // }
     case 4: {
-        system("clear");
+        system("cls");
         string email;
         bool login_success = login_customer(email);
         if (login_success) {
@@ -436,7 +436,7 @@ void customer_portal() {
         break;
     }
     case 6: {
-        system("clear");
+        system("cls");
         cout << "Thank you. We look forward to welcoming you back soon!\n";
         cout << "Exitting now...\n";
         break;
@@ -453,7 +453,7 @@ void customer_portal() {
 
 void enter() {
     int input;
-    system("clear");
+    system("cls");
     cout << "--------------- WELCOME ---------------\n\n";
     cout << "1: Admin\n";
     cout << "2: User\n";
@@ -470,7 +470,7 @@ void enter() {
         break;
     }
     case 3: {
-        system("clear");
+        system("cls");
         cout << "Thank you. We look forward to welcoming you back soon!\n";
         cout << "Exitting now...\n";
         break;
@@ -504,7 +504,7 @@ void initializeGraph() {
 }
 
 int main() {
-    system("clear");
+    system("cls");
     srand(time(NULL));
 
     readAdmin(Admins);
