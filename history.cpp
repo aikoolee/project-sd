@@ -7,20 +7,50 @@
 
 using namespace std;
 
+struct Booking {
+    string nama_cust;
+    string email_cust;
+    string tanggal;
+    int biaya;
+    int jumlah;
+    string nama_agent;
+
+    Booking(){
+
+    }
+
+    void book(string nama, string email, string tanggal, int biaya, int jumlah, string nama_agent) {
+        this->nama_cust = nama;
+        this->email_cust = email;
+        this->tanggal = tanggal;
+        this->biaya = biaya * jumlah;
+        this->jumlah = jumlah;
+        this->nama_agent = nama_agent;
+    }
+
+    void print() {
+        cout << "Nama customer: " << nama_cust << endl;
+        cout << "Email customer: " << email_cust << endl;
+        cout << "Tanggal booking: " << tanggal << endl;
+        cout << "Jumlah tiket: " << jumlah << endl;
+        cout << "Total biaya: " << biaya << endl;
+        cout << "Nama agent: " << nama_agent << endl;
+    }
+};
+
 struct Node {
-    int data;
+    Booking data;
     Node* next;
     Node* prev;
 
     // Constructor
     Node() {
-        this -> data = 0;
         this -> next = nullptr;
         this->prev = nullptr;
     }
 
     // Constructor dengan parameter
-    Node(int value, Node* ptr, Node* ptr2) {
+    Node(Booking value, Node* ptr, Node* ptr2) {
         this -> data = value;
         this -> next = ptr;
         this->prev = ptr2;
@@ -28,7 +58,7 @@ struct Node {
 
     // Destructor
     ~Node() {
-        cout << "Node " << this->data << " dihapus" << endl;
+        cout << "Node dihapus" << endl;
     }
 };
 
@@ -44,7 +74,7 @@ struct DoubleLinkedList {
     }
 
     // Add depan
-    void insertHead(int value) {
+    void insertHead(Booking value) {
         // bikin node baru pakai pointer
         Node* newNode = new Node;
         newNode->data = value;
@@ -60,7 +90,7 @@ struct DoubleLinkedList {
     }
 
     // Add tengah (di index tertentu)
-    void insertAtIndex(int index, int value) {
+    void insertAtIndex(int index, Booking value) {
         // buat node baru
         Node* newNode = new Node;
         newNode->data = value;
@@ -94,7 +124,7 @@ struct DoubleLinkedList {
     }
 
     // Add belakang
-    void insertBack(int value) {
+    void insertBack(Booking value) {
         // buat node baru
         Node* newNode = new Node;
         newNode->data = value;
@@ -116,112 +146,12 @@ struct DoubleLinkedList {
         size++;
     }
 
-    // Remove head : menghapus node di head
-    void removeHead() {
-        // kalau linked list kosong
-        if (head == nullptr) {
-            cout << "Linked list kosong, tidak ada yang dihapus" << endl;
-            return;
-        }
-
-        // kalau linked list ga kosong
-        Node* removeNode = head;
-
-        // ubah head
-        head = head->next;
-
-        // delete
-        delete removeNode;
-
-        // kurangi size
-        size--;
-    }
-
-    // Remove di Index
-    void removeAtIndex(int index){
-        // kalau linked list kosong
-        if (head == nullptr) {
-            cout << "Linked list kosong, tidak ada yang dihapus" << endl;
-            return;
-        }
-
-        // kasus khusus : remove index 0 = remove head
-        if (index == 0) {
-            removeHead();
-        } else {
-            // jika isi linked list lebih dari 1
-            Node* current = head;
-            Node* previous = nullptr;
-            int currentIndex = 0;
-
-            // maju sampai node terakhir linked list
-            while (current != nullptr && currentIndex < index) {
-                previous = current;
-                current = current->next;
-                currentIndex++;
-            }
-
-            if (current != nullptr) {
-                // delete node tengah
-                previous->next = current->next;
-                delete current;
-
-                // kurangi size
-                 size--;
-            } else {
-                cout << "Index out of bound" << endl;
-            }
-        }
-    }
-
-    // Remove Belakang
-    void removeBack(){
-        // kalau linked list kosong
-        if (head == nullptr) {
-            cout << "Linked list kosong, tidak ada yang dihapus" << endl;
-            return;
-        }
-
-        // kalau linked list ga kosong
-        // kasus khusus : isi linkedlist cuman 1
-        if (head->next == nullptr) {
-            delete head;
-            head = nullptr;
-            size--;
-            return;
-        }
-        
-        // jika isi linked list lebih dari 1
-        Node* current = head;
-        Node* previous = nullptr;
-
-        // maju sampai node terakhir linked list
-        while (current->next != nullptr) {
-            previous = current;
-            current = current->next;
-        }
-        
-        // delete node terakhir
-        previous->next = nullptr;
-        delete current;
-
-        // kurangi size
-        size--;
-    }
-
     // Display
     void display() {
         cout << "Print" << endl;
         Node* current = head;
-
-        // kalau current sudah sampai null ptr, berarti sudah sampai paling belakang
         while (current != nullptr) {
-            cout << current->data << endl;
-            if (current->next != nullptr) {
-                cout << "Next: " << current->next->data << endl;
-            } else {
-                cout << "Next is null" << endl;
-            }
+            current->data.print();
             current = current->next;
         }
     }
@@ -252,42 +182,32 @@ struct Customer {
     }
 };
 
-
-struct Booking {
-    string nama_cust;
-    string email_cust;
-    string tanggal;
-    int biaya;
-    int jumlah;
-    string nama_agent;
-
-    Booking(){
-
-    }
-
-    void book(string nama, string email, string tanggal, int biaya, int jumlah, string nama_agent) {
-        this->nama_cust = nama;
-        this->email_cust = email;
-        this->tanggal = tanggal;
-        this->biaya = biaya * jumlah;
-        this->jumlah = jumlah;
-        this->nama_agent = nama_agent;
-    }
-
-    void print() {
-        cout << "Nama customer: " << nama_cust << endl;
-        cout << "Email customer: " << email_cust << endl;
-        cout << "Tanggal booking: " << tanggal << endl;
-        cout << "Jumlah tiket: " << jumlah << endl;
-        cout << "Total biaya: " << biaya << endl;
-        cout << "Nama agent: " << nama_agent << endl;
-    }
-};
-
 int main() {
     Customer customers[2];
     customers[0].add("Customer1", "customer1@example.com", "jalan1", "123456789", "password1");
     customers[1].add("Customer2", "customer2@example.com", "jalan2", "987654321", "password2");
 
-    Booking booking
+    Booking booking1;
+    booking1.book("Customer1", "customer1@example.com", "12 Januari 2023", 1, 10000, "Agent1");
+
+    for (int i = 0; i < 2; i++) {
+        if (customers->nama == booking1.nama_cust) {
+            customers->history.insertBack(booking1);
+        }
+    }
+
+    Booking booking2;
+    booking1.book("Customer1", "customer1@example.com", "12 Januari 2023", 1, 10000, "Agent1");
+
+    for (int i = 0; i < 2; i++) {
+        if (customers->nama == booking2.nama_cust) {
+            customers->history.insertBack(booking2);
+        }
+    }
+
+    for (int i = 0; i < 2; i++) {
+        cout << "Booking history for " << customers[i].nama << ":\n";
+        customers[i].history.display();
+        cout << endl;
+    }
 }
