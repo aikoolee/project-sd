@@ -6,6 +6,7 @@
 #include <vector>
 #include <unordered_map>
 #include <set>
+#include <climits>
 
 using namespace std;
 
@@ -121,13 +122,15 @@ int main() {
     GraphInt cost_graph;
 
     cost_graph.addEdge("A", "D", 1000);
-    cost_graph.addEdge("B", "E", 2000);
-    cost_graph.addEdge("C", "F", 3000);
+    cost_graph.addEdge("A", "C", 2000);
+    cost_graph.addEdge("A", "F", 2000);
+    cost_graph.addEdge("B", "G", 3000);
+    cost_graph.addEdge("C", "D", 500);
 
     map<string, string> parent;
     map<string, int> distance;
     
-    string source = "D";
+    string source = "A";
     minimum_cost(source, parent, distance, cost_graph.m);
 
     cout << "Minimum costs from source " << source << ":\n";

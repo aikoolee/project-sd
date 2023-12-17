@@ -1,12 +1,12 @@
 #include <iostream>
 #include <map>
 #include <cstring>
-#include "Graph.h"
 #include <cstdlib>
 #include <stdlib.h>
 #include <ctime>
 #include <string>
 #include <iomanip>
+#include <unordered_map>
 
 using namespace std;
 
@@ -53,34 +53,34 @@ bool loginAdmin(Admin A[], int n) {
     return false;
 }
 
-class Edge;
-class GraphInt;
-class GraphFloat;
+// class Edge;
+// class GraphInt;
+// class GraphFloat;
 
-bool add_edge(GraphInt &g1, GraphFloat &g2) {
-    char a[30], b[30];
-    int cost;
-    float time;
+// bool add_edge(GraphInt &g1, GraphFloat &g2) {
+//     char a[30], b[30];
+//     int cost;
+//     float time;
 
-    cout << "Masukkan lokasi awal: ";
-    cin >> a;
+//     cout << "Masukkan lokasi awal: ";
+//     cin >> a;
 
-    cout << "Masukkan lokasi tujuan: ";
-    cin >> b;
+//     cout << "Masukkan lokasi tujuan: ";
+//     cin >> b;
 
-    cout << "Masukkan biaya: ";
-    cin >> cost;
+//     cout << "Masukkan biaya: ";
+//     cin >> cost;
 
-    cout << "Masukkan jadwal keberangkatan: ";
-    cin >> time;
+//     cout << "Masukkan jadwal keberangkatan: ";
+//     cin >> time;
 
-    Edge e(a, b, cost, time);
+//     Edge e(a, b, cost, time);
 
-    g1.addEdge(a, b, cost);
-    g2.addEdge(a, b, time);
-    cout << "Jadwal berhasil ditambahkan" << endl;
-    return true;
-}
+//     g1.addEdge(a, b, cost);
+//     g2.addEdge(a, b, time);
+//     cout << "Jadwal berhasil ditambahkan" << endl;
+//     return true;
+// }
 
 // GraphInt cost_graph;
 // GraphFloat time_graph;
