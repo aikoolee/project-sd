@@ -21,7 +21,7 @@ GraphInt cost_graph;
 GraphFloat time_graph;
 map<string, string> parent;
 map<string, int> distance;
-TravelPackage P[10];
+// TravelPackage P[10];
 bool admin_logged_in = false;
 
 void enter();
@@ -244,7 +244,7 @@ bool execute_custom_booking(Booking &B, string destination) {
         cin.ignore();
         std::getline(cin, B.nama_cust);
         B.email_cust = email;
-        B.destinasi[0] = destination;
+        // B.destinasi[0] = destination;
         B.nama_agent = assign(Agents, 10);
 
         cout << "Masukkan tanggal: ";
@@ -388,7 +388,7 @@ void customer_portal() {
         break;
     }
     case 4: {
-        execute_package_booking();
+        // execute_package_booking();
         break;
     }
     case 5: {
