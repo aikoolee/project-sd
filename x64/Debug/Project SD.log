@@ -1,114 +1,15 @@
 ﻿  Main.cpp
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(11,13): error C2011: 'Node': 'struct' type redefinition
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(11,8): message : see declaration of 'Node'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(21,13): error C2011: 'Tree': 'struct' type redefinition
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(21,8): message : see declaration of 'Tree'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(69,17): error C2011: 'Customer': 'struct' type redefinition
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(69,8): message : see declaration of 'Customer'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(89,6): error C2084: function 'void readCust(Tree)' already has a body
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(89,6): message : see previous definition of 'readCust'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(89,6): error C2027: use of undefined type 'Tree'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(21,8): message : see declaration of 'Tree'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(91,14): error C2079: 'c' uses undefined struct 'Customer'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(97,9): error C2027: use of undefined type 'Tree'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(21,8): message : see declaration of 'Tree'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(104,6): error C2084: function 'bool createAcc(Tree)' already has a body
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(104,6): message : see previous definition of 'createAcc'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(104,6): error C2027: use of undefined type 'Tree'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(21,8): message : see declaration of 'Tree'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(122,18): error C2027: use of undefined type 'Tree'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(21,8): message : see declaration of 'Tree'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(128,14): error C2079: 'c1' uses undefined struct 'Customer'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(128,16): error C2440: 'initializing': cannot convert from 'initializer list' to 'int'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(128,16): message : The initializer contains too many elements
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(135,5): error C2027: use of undefined type 'Tree'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(21,8): message : see declaration of 'Tree'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(141,16): error C2011: 'Booking': 'struct' type redefinition
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(141,8): message : see declaration of 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\admin.h(110,14): error C2079: 'c1' uses undefined struct 'Customer'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\admin.h(130,13): error C2079: 'b1' uses undefined struct 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(17,7): error C2512: 'Agent': no appropriate default constructor available
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\admin.h(61,8): message : see declaration of 'Agent'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(19,6): error C2079: 'trees' uses undefined struct 'Tree'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(152,21): error C2079: 'B1' uses undefined struct 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(153,25): error C2664: 'bool custom_booking(Booking &,std::string)': cannot convert argument 1 from 'int' to 'Booking &'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(121,6): message : see declaration of 'custom_booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(153,25): message : while trying to match the argument list '(int, std::string)'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(200,22): error C2027: use of undefined type 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(141,8): message : see declaration of 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(200,9): error C2672: 'getline': no matching overloaded function found
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\string(83,32): message : could be 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &)'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(200,9): message : 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &)': expects 2 arguments - 1 provided
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\string(76,32): message : or       'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(200,9): message : 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': expects 3 arguments - 1 provided
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\string(69,32): message : or       'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &)'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(200,9): message : 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &)': expects 2 arguments - 1 provided
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\string(26,32): message : or       'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(200,9): message : 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': expects 3 arguments - 1 provided
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(201,9): error C2027: use of undefined type 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(141,8): message : see declaration of 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(204,13): error C2027: use of undefined type 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(141,8): message : see declaration of 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(208,9): error C2027: use of undefined type 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(141,8): message : see declaration of 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(211,22): error C2027: use of undefined type 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(141,8): message : see declaration of 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(211,9): error C2672: 'getline': no matching overloaded function found
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\string(83,32): message : could be 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &)'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(211,9): message : 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &)': expects 2 arguments - 1 provided
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\string(76,32): message : or       'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(211,9): message : 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': expects 3 arguments - 1 provided
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\string(69,32): message : or       'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &)'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(211,9): message : 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &)': expects 2 arguments - 1 provided
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\string(26,32): message : or       'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(211,9): message : 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': expects 3 arguments - 1 provided
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(214,16): error C2027: use of undefined type 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(141,8): message : see declaration of 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(215,9): error C2027: use of undefined type 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(141,8): message : see declaration of 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(215,31): error C2027: use of undefined type 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(141,8): message : see declaration of 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(245,27): error C2027: use of undefined type 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(141,8): message : see declaration of 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(245,14): error C2672: 'std::getline': no matching overloaded function found
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\string(83,32): message : could be 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &)'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(245,14): message : 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &)': expects 2 arguments - 1 provided
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\string(76,32): message : or       'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(245,14): message : 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': expects 3 arguments - 1 provided
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\string(69,32): message : or       'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &)'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(245,14): message : 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &)': expects 2 arguments - 1 provided
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\string(26,32): message : or       'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(245,14): message : 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': expects 3 arguments - 1 provided
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(246,9): error C2027: use of undefined type 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(141,8): message : see declaration of 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(247,9): error C2027: use of undefined type 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(141,8): message : see declaration of 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(248,9): error C2027: use of undefined type 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(141,8): message : see declaration of 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(251,27): error C2027: use of undefined type 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(141,8): message : see declaration of 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(251,14): error C2672: 'std::getline': no matching overloaded function found
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\string(83,32): message : could be 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &)'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(251,14): message : 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &)': expects 2 arguments - 1 provided
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\string(76,32): message : or       'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(251,14): message : 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': expects 3 arguments - 1 provided
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\string(69,32): message : or       'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &)'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(251,14): message : 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &)': expects 2 arguments - 1 provided
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\string(26,32): message : or       'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(251,14): message : 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': expects 3 arguments - 1 provided
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(254,16): error C2027: use of undefined type 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(141,8): message : see declaration of 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(256,9): error C2027: use of undefined type 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(141,8): message : see declaration of 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(256,27): error C2027: use of undefined type 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\customer.h(141,8): message : see declaration of 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(294,17): error C2079: 'B1' uses undefined struct 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(295,21): error C2664: 'bool choose_and_book_package(TravelPackage,Booking &)': cannot convert argument 2 from 'int' to 'Booking &'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(186,6): message : see declaration of 'choose_and_book_package'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(295,21): message : while trying to match the argument list '(TravelPackage, int)'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(334,14): error C2079: 'C' uses undefined struct 'Customer'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(362,18): error C2065: 'createAcc': undeclared identifier
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(362,16): warning C4305: 'initializing': truncation from 'bool (__cdecl *)(Tree)' to 'bool'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(404,21): error C2079: 'B' uses undefined struct 'Booking'
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(507,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(521,5): error C2065: 'readCust': undeclared identifier
+C:\Users\Dora Lee\source\repos\Project SD\Project SD\Main.cpp(508,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\utility(270,16): warning C4244: 'initializing': conversion from '_Ty' to '_Ty1', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+          and
+          [
+              _Ty1=float
+          ]
+C:\Users\Dora Lee\source\repos\Project SD\Project SD\Graph.h(181,23): message : see reference to function template instantiation 'std::pair<float,std::string>::pair<double,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,0>(std::pair<double,std::basic_string<char,std::char_traits<char>,std::allocator<char>>> &&) noexcept' being compiled
+C:\Users\Dora Lee\source\repos\Project SD\Project SD\Graph.h(181,13): message : see the first reference to 'std::pair<float,std::string>::pair' in 'minimum_time'
+Main.obj : error LNK2019: unresolved external symbol "bool __cdecl custom_booking(struct Booking &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?custom_booking@@YA_NAEAUBooking@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) referenced in function "void __cdecl finding_a_custom_plan(void)" (?finding_a_custom_plan@@YAXXZ)
+C:\Users\Dora Lee\source\repos\Project SD\x64\Debug\Project SD.exe : fatal error LNK1120: 1 unresolved externals
