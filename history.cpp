@@ -148,11 +148,11 @@ struct DoubleLinkedList {
 
     // Display
     void display() {
-        cout << "Print" << endl;
         Node* current = head;
         while (current != nullptr) {
             current->data.print();
             current = current->next;
+            cout << endl;
         }
     }
 };
@@ -188,20 +188,56 @@ int main() {
     customers[1].add("Customer2", "customer2@example.com", "jalan2", "987654321", "password2");
 
     Booking booking1;
-    booking1.book("Customer1", "customer1@example.com", "12 Januari 2023", 1, 10000, "Agent1");
+    booking1.book("Customer1", "customer1@example.com", "12 Januari 2023", 1000, 1, "Agent1");
 
     for (int i = 0; i < 2; i++) {
-        if (customers->nama == booking1.nama_cust) {
-            customers->history.insertBack(booking1);
+        if (customers[i].nama == booking1.nama_cust) {
+            customers[i].history.insertBack(booking1);
         }
     }
 
     Booking booking2;
-    booking1.book("Customer1", "customer1@example.com", "12 Januari 2023", 1, 10000, "Agent1");
+    booking2.book("Customer1", "customer1@example.com", "12 Januari 2023", 1000, 2, "Agent1");
 
     for (int i = 0; i < 2; i++) {
-        if (customers->nama == booking2.nama_cust) {
-            customers->history.insertBack(booking2);
+        if (customers[i].nama == booking2.nama_cust) {
+            customers[i].history.insertBack(booking2);
+        }
+    }
+
+    Booking booking3;
+    booking3.book("Customer1", "customer1@example.com", "12 Januari 2023", 1000, 3, "Agent1");
+
+    for (int i = 0; i < 2; i++) {
+        if (customers[i].nama == booking3.nama_cust) {
+            customers[i].history.insertBack(booking3);
+        }
+    }
+
+    Booking booking4;
+    booking4.book("Customer1", "customer1@example.com", "12 Januari 2023", 1000, 1, "Agent1");
+
+    for (int i = 0; i < 2; i++) {
+        if (customers[i].nama == booking4.nama_cust) {
+            customers[i].history.insertBack(booking4);
+        }
+    }
+
+    Booking booking5;
+    booking5.book("Customer2", "customer2@example.com", "12 Januari 2023", 20000, 1, "Agent1");
+
+    for (int i = 0; i < 2; i++) {
+        if (customers[i].nama == booking5.nama_cust) {
+            customers[i].history.insertBack(booking5);
+        }
+    }
+
+    Booking booking6;
+    booking6.book("Customer2", "customer2@example.com", "12 Januari 2023", 20000, 2, "Agent1");
+
+    for (int i = 0; i < 2; i++) {
+        if (customers[i].nama == booking6.nama_cust) {
+            customers[i].history.insertBack(booking6);
         }
     }
 
@@ -210,4 +246,15 @@ int main() {
         customers[i].history.display();
         cout << endl;
     }
+
+    string best_cust = "none";
+    int max = -1;
+    for (int i = 0; i < 2; i++) {
+        if (customers[i].history.size > max) {
+            best_cust = customers[i].nama;
+            max = customers[i].history.size;
+        }
+    }
+    
+    cout << "Best Customer: " << best_cust << endl;
 }
