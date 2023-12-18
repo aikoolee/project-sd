@@ -536,6 +536,12 @@ int main() {
             admins[0].add("Admin1", "admin1@example.com", "123456789", "password1");
             admins[1].add("Admin2", "admin2@example.com", "987654321", "password2");
 
+            cost_graph.addEdge("New Delhi", "Dubai", 1000);
+            cost_graph.addEdge("New Delhi", "Mumbai", 2000);
+            cost_graph.addEdge("New Delhi", "London", 2000);
+            cost_graph.addEdge("Dubai", "New York", 3000);
+            cost_graph.addEdge("Mumbai", "London", 500);
+
             bool loggedIn = loginAdmin(admins, 2);
 
             if (loggedIn) {
@@ -563,9 +569,9 @@ int main() {
 
                         cout << "Masukkan lokasi_awal: ";
                         cin >> lokasi_awal;
-                        cout << "Masukkan lokasi_tujuan: ";
+                        cout << "\nMasukkan lokasi_tujuan: ";
                         cin >> lokasi_tujuan;
-                        cout << "Masukkan biaya: ";
+                        cout << "\nMasukkan biaya: ";
                         cin >> biaya;
 
                         cost_graph.addEdge(lokasi_awal, lokasi_tujuan, biaya);
@@ -652,11 +658,11 @@ int main() {
                         cout << "Masukkan tanggal: ";
                         cin >> tanggal;
                         cout << "Masukkan lokasi awal: ";
-                        cin >> source;
+                        getline(cin, source);
                         cout << "Masukkan lokasi tujuan: ";
-                        cin >> destination;
+                        getline(cin, destination);
                         cout << "Masukkan nama agent: ";
-                        cin >> nama_agent;
+                        getline(cin, nama_agent);
 
                         minimum_cost(source, parent, distance, cost_graph.m);
 
