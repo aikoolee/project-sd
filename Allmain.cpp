@@ -644,7 +644,7 @@ int main() {
                         minimum_cost(source, parent, distance, cost_graph.m);
 
                         cout << "Minimum costs from source " << source << ":\n";
-                        for (const auto& p : distance) {
+                        for (const auto& p : distance) {        
                             cout << "To " << p.first << ": " << p.second << "\n";
                         }
                     } else if (menu2 == 2) {
@@ -661,7 +661,7 @@ int main() {
                         cout << "Masukkan tanggal: ";
                         cin >> tanggal;
                         cout << "Masukkan lokasi awal: ";
-                        getline(cin, source);
+                        cin >> source;
                         cout << "Masukkan lokasi tujuan: ";
                         getline(cin, destination);
                         cout << "Masukkan nama agent: ";
