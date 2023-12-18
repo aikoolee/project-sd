@@ -469,7 +469,7 @@ void minimum_time(std::string src, std::string dest, vector<std::string>& path, 
 }
 
 int main() {
-    Admin admins[2];
+    Admin admins[4];
     Customer customers[10];
     GraphInt cost_graph;
     map<string, string> parent;
@@ -495,6 +495,34 @@ int main() {
         cost_graph.addEdge("Mumbai", "London", 500);
 
         customers[0].add("Customer1", "customer1@gmail.com", "Jalan1", "12345", "password1");
+        customers[1].add("Customer2", "customer2@gmail.com", "Jalan2", "67890", "password2");
+
+        Booking booking1;
+        booking1.book("Customer1", "customer1@example.com", "12 Januari 2023", 1000, 1, "Agent1");
+
+        for (int i = 0; i < cust_size; i++) {
+            if (customers[i].nama == booking1.nama_cust) {
+                customers[i].history.insertBack(booking1);
+            }
+        }
+
+        Booking booking2;
+        booking2.book("Customer1", "customer1@example.com", "12 Januari 2023", 1000, 2, "Agent1");
+
+        for (int i = 0; i < cust_size; i++) {
+            if (customers[i].nama == booking2.nama_cust) {
+                customers[i].history.insertBack(booking2);
+            }
+        }
+
+        Booking booking3;
+        booking3.book("Customer2", "customer2@example.com", "12 Januari 2023", 1000, 3, "Agent1");
+
+        for (int i = 0; i < cust_size; i++) {
+        if (customers[i].nama == booking3.nama_cust) {
+                customers[i].history.insertBack(booking3);
+            }
+        }
 
         if (menu == 1) {
             admins[0].add("Admin1", "admin1@example.com", "123456789", "password1");
@@ -547,7 +575,7 @@ int main() {
                             }
                         }
                     } else if (menu2 == 4) {
-                        for (int i = 0; i < 2; i++) {
+                        for (int i = 0; i < cust_size; i++) {
                             cout << "Booking history for " << customers[i].nama << ":\n";
                             customers[i].history.display();
                             cout << endl;
@@ -555,7 +583,7 @@ int main() {
 
                         string best_cust = "none";
                         int max = -1;
-                        for (int i = 0; i < 2; i++) {
+                        for (int i = 0; i < cust_size; i++) {
                             if (customers[i].history.size > max) {
                                 best_cust = customers[i].nama;
                                 max = customers[i].history.size;
@@ -634,7 +662,7 @@ int main() {
 
                         booking.book(nama, email, tanggal, biaya, jumlah, nama_agent);
 
-                        for (int i = 0; i < 2; i++) {
+                        for (int i = 0; i < cust_size; i++) {
                             if (customers[i].nama == booking.nama_cust) {
                                 customers[i].history.insertBack(booking);
                             }
