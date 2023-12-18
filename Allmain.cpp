@@ -660,8 +660,8 @@ int main() {
 
                         cout << "Masukkan tanggal: ";
                         cin >> tanggal;
-                        // getline(cin, tanggal);
                         cout << "Masukkan lokasi awal: ";
+                        cin.ignore();
                         getline(cin, source);
                         cout << "Masukkan lokasi tujuan: ";
                         getline(cin, destination);
@@ -714,11 +714,12 @@ int main() {
 
             cout << "Masukkan nama: ";
             cin >> nama;
+            cout << "Masukkan alamat: ";
+            getline(cin, alamat);
             cout << "Masukkan email: ";
             cin >> email;
-            cout << "Masukkan alamat: ";
-            cin >> alamat;
             cout << "Masukkan nomor telepon: ";
+            cin.ignore();
             cin >> notelp;
             cout << "Masukkan password: ";
             cin >> password;
