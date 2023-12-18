@@ -201,9 +201,8 @@ struct Node {
 };
 
 struct DoubleLinkedList {
-    Node* head; // head or first or front
-    // Node* tail; // tail or last or rear
-    int size; // size or length or count
+    Node* head;
+    int size; 
 
     // Constructor
     DoubleLinkedList(){
@@ -213,71 +212,28 @@ struct DoubleLinkedList {
 
     // Add depan
     void insertHead(Booking value) {
-        // bikin node baru pakai pointer
         Node* newNode = new Node;
         newNode->data = value;
-
-        // ubah next dari head yang baru jadi head lama
         newNode->next = head;
-
-        // ubah head
         head = newNode;
-
-        // tambahi size
-        size++;
-    }
-
-    // Add tengah (di index tertentu)
-    void insertAtIndex(int index, Booking value) {
-        // buat node baru
-        Node* newNode = new Node;
-        newNode->data = value;
-
-        // ubah next dari head yang baru jadi head lama
-        if (index == 0) {
-            insertHead(value);
-        } else {
-            Node* current = head;
-
-            // maju sampai sebelum 1 posisi sebelun index yg dituju
-            for (int i = 0; i < index-1 && current != nullptr; i++) {
-                current = current->next;
-            }
-            
-            if (current != nullptr) {
-                newNode->next = current->next;
-                current->next = newNode;
-                size++;
-            } else {
-                cout << "Index out of bound" << endl;
-            }
-            
-        }
-        
-        // ubah head
-        head = newNode;
-
-        // tambahi size
         size++;
     }
 
     // Add belakang
     void insertBack(Booking value) {
-        // buat node baru
         Node* newNode = new Node;
         newNode->data = value;
         
-        // kasus khusus ketika LL kosong
         if (head == nullptr) {
             insertHead(value);
         } else { 
             Node* current = head;
-            // maju sampai current ada di node paling belakang
+            
             while (current->next != nullptr) {
                 current = current->next;
             }    
 
-            // ubah next dari current jadi newNode
+            
             current->next = newNode;
         }
 
