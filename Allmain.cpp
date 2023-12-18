@@ -492,9 +492,9 @@ int main() {
             admins[0].add("Admin1", "admin1@example.com", "123456789", "password1");
             admins[1].add("Admin2", "admin2@example.com", "987654321", "password2");
 
-            cost_graph.addEdge("New Delhi", "Dubai", 1000);
-            cost_graph.addEdge("New Delhi", "Mumbai", 2000);
-            cost_graph.addEdge("New Delhi", "London", 2000);
+            cost_graph.addEdge("Tokyo", "Dubai", 1000);
+            cost_graph.addEdge("Tokyo", "Mumbai", 2000);
+            cost_graph.addEdge("Tokyo", "London", 2000);
             cost_graph.addEdge("Dubai", "New York", 3000);
             cost_graph.addEdge("Mumbai", "London", 500);
 
