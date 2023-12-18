@@ -183,14 +183,14 @@ struct Node {
 
     // Constructor
     Node() {
-        this -> next = nullptr;
+        this->next = nullptr;
         this->prev = nullptr;
     }
 
     // Constructor dengan parameter
     Node(Booking value, Node* ptr, Node* ptr2) {
-        this -> data = value;
-        this -> next = ptr;
+        this->data = value;
+        this->next = ptr;
         this->prev = ptr2;
     }
 
