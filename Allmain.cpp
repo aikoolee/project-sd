@@ -614,6 +614,8 @@ int main() {
                 cout << "Admin login failed. Please try again." << endl;
             }
         } else if (menu == 2) {
+            customers[0].add("Customer1", "customer1@gmail.com", "Jalan1", "12345", "password1");
+            
             bool loggedIn = loginCustomer(customers, cust_size);
 
             if (loggedIn) {
@@ -626,7 +628,8 @@ int main() {
                     cout << "Menu:" << endl;
                     cout << "1. Mencari rencana perjalanan terbaik" << endl;
                     cout << "2. Book rencana perjalanan" << endl;
-                    cout << "3. Exit" << endl;
+                    cout << "3. Lihat booking history" << endl;
+                    cout << "4. Exit" << endl;
                     cout << "Masukkan pilihan: ";
 
                     int menu2;
@@ -679,9 +682,22 @@ int main() {
                                 customers[i].history.insertBack(booking);
                             }
                         }
+
+                        cout << "Book berhasil" << endl;
                     } else if (menu2 == 3) {
+                        // for (int i = 0; i < 2; i++) {
+                        //     if (customers[i].nama == customers->nama) {
+                        //         cout << "Booking history for " << customers[i].nama << ":\n";
+                        //         customers[i].history.display();
+                        //         cout << endl;
+                        //     }
+                        // }
+
+                        customers->history.display();
+                    } else if (menu2 == 4) {
                         check2 = false;
                     }
+                    
                     
                 }
 
