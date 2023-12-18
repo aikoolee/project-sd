@@ -85,8 +85,6 @@ struct Agent {
     }
 };
 
-// --- CUSTOMER ---
-
 struct treeNode {
     char data;
     unordered_map <char, treeNode*> child;
@@ -145,12 +143,169 @@ struct Tree {
     }
 };
 
+// --- BOOKING ---
+
+struct Booking {
+    string nama_cust;
+    string email_cust;
+    string tanggal;
+    int biaya;
+    int jumlah;
+    string nama_agent;
+
+    Booking(){
+
+    }
+
+    void book(string nama, string email, string tanggal, int biaya, int jumlah, string nama_agent) {
+        this->nama_cust = nama;
+        this->email_cust = email;
+        this->tanggal = tanggal;
+        this->biaya = biaya * jumlah;
+        this->jumlah = jumlah;
+        this->nama_agent = nama_agent;
+    }
+
+    void print() {
+        cout << "Nama customer: " << nama_cust << endl;
+        cout << "Email customer: " << email_cust << endl;
+        cout << "Tanggal booking: " << tanggal << endl;
+        cout << "Jumlah tiket: " << jumlah << endl;
+        cout << "Total biaya: " << biaya << endl;
+        cout << "Nama agent: " << nama_agent << endl;
+    }
+};
+
+struct Node {
+    Booking data;
+    Node* next;
+    Node* prev;
+
+    // Constructor
+    Node() {
+        this -> next = nullptr;
+        this->prev = nullptr;
+    }
+
+    // Constructor dengan parameter
+    Node(Booking value, Node* ptr, Node* ptr2) {
+        this -> data = value;
+        this -> next = ptr;
+        this->prev = ptr2;
+    }
+
+    // Destructor
+    ~Node() {
+        cout << "Node dihapus" << endl;
+    }
+};
+
+struct DoubleLinkedList {
+    Node* head; // head or first or front
+    // Node* tail; // tail or last or rear
+    int size; // size or length or count
+
+    // Constructor
+    DoubleLinkedList(){
+        this->head = nullptr;
+        size = 0;
+    }
+
+    // Add depan
+    void insertHead(Booking value) {
+        // bikin node baru pakai pointer
+        Node* newNode = new Node;
+        newNode->data = value;
+
+        // ubah next dari head yang baru jadi head lama
+        newNode->next = head;
+
+        // ubah head
+        head = newNode;
+
+        // tambahi size
+        size++;
+    }
+
+    // Add tengah (di index tertentu)
+    void insertAtIndex(int index, Booking value) {
+        // buat node baru
+        Node* newNode = new Node;
+        newNode->data = value;
+
+        // ubah next dari head yang baru jadi head lama
+        if (index == 0) {
+            insertHead(value);
+        } else {
+            Node* current = head;
+
+            // maju sampai sebelum 1 posisi sebelun index yg dituju
+            for (int i = 0; i < index-1 && current != nullptr; i++) {
+                current = current->next;
+            }
+            
+            if (current != nullptr) {
+                newNode->next = current->next;
+                current->next = newNode;
+                size++;
+            } else {
+                cout << "Index out of bound" << endl;
+            }
+            
+        }
+        
+        // ubah head
+        head = newNode;
+
+        // tambahi size
+        size++;
+    }
+
+    // Add belakang
+    void insertBack(Booking value) {
+        // buat node baru
+        Node* newNode = new Node;
+        newNode->data = value;
+        
+        // kasus khusus ketika LL kosong
+        if (head == nullptr) {
+            insertHead(value);
+        } else { 
+            Node* current = head;
+            // maju sampai current ada di node paling belakang
+            while (current->next != nullptr) {
+                current = current->next;
+            }    
+
+            // ubah next dari current jadi newNode
+            current->next = newNode;
+        }
+
+        size++;
+    }
+
+    // Display
+    void display() {
+        Node* current = head;
+        while (current != nullptr) {
+            current->data.print();
+            current = current->next;
+            cout << endl;
+        }
+    }
+};
+
+// --- CUSTOMER ---
+
+int cust_size = 0;
+
 struct Customer {
     string nama;
     string email;
     string alamat;
     string notelp;
     string password;
+    DoubleLinkedList history;
 
     void add(string nama, string email, string alamat, string notelp, string password) {
         this->nama = nama;
@@ -158,6 +313,7 @@ struct Customer {
         this->alamat = alamat;
         this->notelp = notelp;
         this->password = password;
+        cust_size++;
     }
 
     bool login(string nama, string password) {
@@ -167,6 +323,24 @@ struct Customer {
         }
         return false;
     }
+
+    void print() {
+        cout << "Customer Details:\n";
+        cout << "Nama: " << nama << endl;
+        cout << "Email: " << email << endl;
+        cout << "Alamat: " << alamat << endl;
+        cout << "Nomor Telepon: " << notelp << endl;
+        cout << "Password: " << password << endl;
+
+        // cout << "\nBooking History:\n";
+        // Node* current = history.head;
+        // while (current != nullptr) {
+        //     current->data.print();
+        //     cout << endl;
+        //     current = current->next;
+        // }
+    }
+
 };
 
 bool loginCustomer(Customer C[], int n) {
@@ -187,66 +361,6 @@ bool loginCustomer(Customer C[], int n) {
     
     return false;
 }
-
-struct treeNode {
-    char data;
-    unordered_map <char, treeNode*> child;
-    bool check;
-
-    treeNode(char data) {
-        this->data = data;
-        check = false;
-    }
-};
-
-struct Tree {
-    treeNode* root;
-    int count;
-    
-    Tree() {
-        root = new treeNode('0');
-        count = 0;
-    }
-
-    void insert(string email) {
-        treeNode* temp = root;
-        for (int i = 0; email[i] != '@'; i++) {
-            if (email[i] == '0'){
-                break;
-            }
-
-            char chr = email[i];
-            if (temp->child.count(chr)) {
-                temp = temp->child[chr];
-            } else {
-                treeNode* node = new treeNode(chr);
-                temp->child[chr] = node;
-                temp = node;
-            }
-        }
-        
-        temp->check = true;
-        count++;
-    }
-
-    bool search(string email) {
-        treeNode* temp = root;
-        for (int i = 0; email[i] != '@'; i++) {
-            if (email[i] == '0') {
-                break;
-            }
-
-            char chr = email[i];
-            if (temp->child.count(chr) == 0) {
-                return false;
-            }
-            
-            temp = temp->child[chr];
-        }
-        
-        return temp->check;
-    }
-};
 
 bool createAcc(Tree t) {
     string nama;
@@ -307,6 +421,16 @@ public:
     void addEdge(std::string x, std::string y, int wt) {
         m[x].push_back(make_pair(y, wt));
         m[y].push_back(make_pair(x, wt));
+    }
+
+    void print() {
+        for (const auto& entry : m) {
+            std::cout << "Source " << entry.first << ": ";
+            for (const auto& neighbor : entry.second) {
+                std::cout << "(" << neighbor.first << ", " << neighbor.second << ") ";
+            }
+            std::cout << std::endl;
+        }
     }
 };
 
@@ -395,86 +519,163 @@ int main() {
     map<string, string> parent;
     map<string, int> distance;
 
-    cout << "Menu:" << endl;
-    cout << "1. Login Admin" << endl;
-    cout << "2. Login Customer" << endl;
-    cout << "3. Create Account Customer" << endl;
-    cout << "Masukkan pilihan: ";
+    bool check = true;
+    while (check) {
+        cout << endl;
+        cout << "Menu:" << endl;
+        cout << "1. Login Admin" << endl;
+        cout << "2. Login Customer" << endl;
+        cout << "3. Create Customer's Account" << endl;
+        cout << "4. Exit" << endl;
+        cout << "Masukkan pilihan: ";
 
-    int menu;
-    cin >> menu;
+        int menu;
+        cin >> menu;
 
-    if (menu == 1) {
-        admins[0].add("Admin1", "admin1@example.com", "123456789", "password1");
-        admins[1].add("Admin2", "admin2@example.com", "987654321", "password2");
+        if (menu == 1) {
+            admins[0].add("Admin1", "admin1@example.com", "123456789", "password1");
+            admins[1].add("Admin2", "admin2@example.com", "987654321", "password2");
 
-        bool loggedIn = loginAdmin(admins, 2);
+            bool loggedIn = loginAdmin(admins, 2);
 
-        if (loggedIn) {
-            cout << "Admin login successful!" << endl;
+            if (loggedIn) {
+                cout << "Admin login successful!" << endl;
 
-            cout << "Menu:" << endl;
-            cout << "1. Masukkan lokasi" << endl;
-            cout << "Masukkan pilihan: ";
+                bool check2 = true;
 
-            int menu2;
-            cin >> menu2;
+                while (check2) {
+                    cout << endl;
+                    cout << "Menu:" << endl;
+                    cout << "1. Add a Location" << endl;
+                    cout << "2. View all locations" << endl;
+                    cout << "3. View all customers" << endl;
+                    cout << "4. View all customer's history" << endl;
+                    cout << "5. Exit" << endl;
+                    cout << "Masukkan pilihan: ";
 
-            if (menu2 == 1) {
-                string lokasi_awal;
-                string lokasi_tujuan;
-                int biaya;
+                    int menu2;
+                    cin >> menu2;
 
-                cout << "Masukkan lokasi_awal: ";
-                cin >> lokasi_awal;
-                cout << "Masukkan lokasi_tujuan: ";
-                cin >> lokasi_tujuan;
-                cout << "Masukkan biaya: ";
-                cin >> biaya;
+                    if (menu2 == 1) {
+                        string lokasi_awal;
+                        string lokasi_tujuan;
+                        int biaya;
 
-                cost_graph.addEdge(lokasi_awal, lokasi_tujuan, biaya);
-            }
-            
-        } else {
-            cout << "Admin login failed. Please try again." << endl;
-        }
-    } else if (menu == 2) {
-        customers[0].add("Customer1", "customer1@example.com", "jalan1", "123456789", "password1");
-        customers[1].add("Customer2", "customer2@example.com", "jalan2", "987654321", "password2");
+                        cout << "Masukkan lokasi_awal: ";
+                        cin >> lokasi_awal;
+                        cout << "Masukkan lokasi_tujuan: ";
+                        cin >> lokasi_tujuan;
+                        cout << "Masukkan biaya: ";
+                        cin >> biaya;
 
-        bool loggedIn = loginCustomer(customers, 2);
+                        cost_graph.addEdge(lokasi_awal, lokasi_tujuan, biaya);
+                        cout << "Lokasi berhasil ditambahkan" << endl;
+                    } else if (menu2 == 2) {
+                        cost_graph.print();
+                    } else if (menu2 == 3) {
+                        for (int i = 0; i < cust_size; i++) {
+                            cout << "Customer details for " << customers[i].nama << ":\n";
+                            customers[i].print();
+                            cout << endl;
+                        }
+                    } else if (menu2 == 4) {
+                        for (int i = 0; i < 2; i++) {
+                            cout << "Booking history for " << customers[i].nama << ":\n";
+                            customers[i].history.display();
+                            cout << endl;
+                        }
 
-        if (loggedIn) {
-            cout << "Customer login successful!" << endl;
-
-            cout << "Menu:" << endl;
-            cout << "1. Mencari rencana perjalanan terbaik" << endl;
-            cout << "Masukkan pilihan: ";
-
-            int menu2;
-            cin >> menu2;
-
-            if (menu2 == 1) {
-                string source;
-
-                cout << "Masukkan lokasi_awal: ";
-                cin >> source;
-
-                minimum_cost(source, parent, distance, cost_graph.m);
-
-                cout << "Minimum costs from source " << source << ":\n";
-                for (const auto& p : distance) {
-                    cout << "To " << p.first << ": " << p.second << "\n";
-                }
-            }
-
-        } else {
-            cout << "Customer login failed. Please try again." << endl;
-        }
-    } else if (menu == 3) {
-        
-    }
+                        string best_cust = "none";
+                        int max = -1;
+                        for (int i = 0; i < 2; i++) {
+                            if (customers[i].history.size > max) {
+                                best_cust = customers[i].nama;
+                                max = customers[i].history.size;
+                            }
+                        }
     
+                        cout << "Best Customer: " << best_cust << endl;
+                    } else if (menu2 == 5) {
+                        check2 = false;
+                    }
+                }
+            
+            } else {
+                cout << "Admin login failed. Please try again." << endl;
+            }
+        } else if (menu == 2) {
+            bool loggedIn = loginCustomer(customers, cust_size);
+
+            if (loggedIn) {
+                cout << "Customer login successful!" << endl;
+
+                bool check2 = true;
+
+                while (check2) {
+                    cout << endl;
+                    cout << "Menu:" << endl;
+                    cout << "1. Mencari rencana perjalanan terbaik" << endl;
+                    cout << "2. Book rencana perjalanan" << endl;
+                    cout << "3. Exit" << endl;
+                    cout << "Masukkan pilihan: ";
+
+                    int menu2;
+                    cin >> menu2;
+
+                    if (menu2 == 1) {
+                        string source;
+
+                        cout << "Masukkan lokasi_awal: ";
+                        cin >> source;
+
+                        minimum_cost(source, parent, distance, cost_graph.m);
+
+                        cout << "Minimum costs from source " << source << ":\n";
+                        for (const auto& p : distance) {
+                            cout << "To " << p.first << ": " << p.second << "\n";
+                        }
+                    } else if (menu2 == 2) {
+                        // Booking booking;
+                        // booking.book("Customer1", "customer1@example.com", "12 Januari 2023", 1000, 1, "Agent1");
+
+                        // for (int i = 0; i < 2; i++) {
+                        //     if (customers[i].nama == booking.nama_cust) {
+                        //         customers[i].history.insertBack(booking);
+                        //     }
+                        // }
+                    } else if (menu2 == 3) {
+                        check2 = false;
+                    }
+                    
+                }
+
+            } else {
+                cout << "Customer login failed. Please try again." << endl;
+            }
+        } else if (menu == 3) {
+            string nama;
+            string email;
+            string alamat;
+            string notelp;
+            string password;
+
+            cout << "Masukkan nama: ";
+            cin >> nama;
+            cout << "Masukkan email: ";
+            cin >> email;
+            cout << "Masukkan alamat: ";
+            cin >> alamat;
+            cout << "Masukkan nomor telepon: ";
+            cin >> notelp;
+            cout << "Masukkan password: ";
+            cin >> password;
+
+            customers[cust_size].add(nama, email, alamat, notelp, password);
+            cout << "Akun berhasil dibuat" << endl;
+        } else if (menu == 4) {
+            check = false;
+        }
+    }
     
     return 0;
 }
