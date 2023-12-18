@@ -491,7 +491,7 @@ int main() {
         cost_graph.addEdge("Tokyo", "Dubai", 1000);
         cost_graph.addEdge("Tokyo", "Mumbai", 2000);
         cost_graph.addEdge("Tokyo", "London", 2000);
-        cost_graph.addEdge("Dubai", "New York", 3000);
+        cost_graph.addEdge("Dubai", "Jakarta", 3000);
         cost_graph.addEdge("Mumbai", "London", 500);
 
         customers[0].add("Customer1", "customer1@gmail.com", "Jalan1", "12345", "password1");
