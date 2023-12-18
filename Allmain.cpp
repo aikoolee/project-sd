@@ -488,15 +488,17 @@ int main() {
         int menu;
         cin >> menu;
 
+        cost_graph.addEdge("Tokyo", "Dubai", 1000);
+        cost_graph.addEdge("Tokyo", "Mumbai", 2000);
+        cost_graph.addEdge("Tokyo", "London", 2000);
+        cost_graph.addEdge("Dubai", "New York", 3000);
+        cost_graph.addEdge("Mumbai", "London", 500);
+
+        customers[0].add("Customer1", "customer1@gmail.com", "Jalan1", "12345", "password1");
+
         if (menu == 1) {
             admins[0].add("Admin1", "admin1@example.com", "123456789", "password1");
             admins[1].add("Admin2", "admin2@example.com", "987654321", "password2");
-
-            cost_graph.addEdge("Tokyo", "Dubai", 1000);
-            cost_graph.addEdge("Tokyo", "Mumbai", 2000);
-            cost_graph.addEdge("Tokyo", "London", 2000);
-            cost_graph.addEdge("Dubai", "New York", 3000);
-            cost_graph.addEdge("Mumbai", "London", 500);
 
             bool loggedIn = loginAdmin(admins, 2);
 
@@ -570,8 +572,6 @@ int main() {
                 cout << "Admin login failed. Please try again." << endl;
             }
         } else if (menu == 2) {
-            customers[0].add("Customer1", "customer1@gmail.com", "Jalan1", "12345", "password1");
-            
             bool loggedIn = loginCustomer(customers, cust_size);
 
             if (loggedIn) {
