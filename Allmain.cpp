@@ -563,18 +563,18 @@ int main() {
                     cin >> menu2;
 
                     if (menu2 == 1) {
-                        string lokasi_awal;
-                        string lokasi_tujuan;
+                        string destinasi1;
+                        string destinasi2;
                         int biaya;
 
-                        cout << "Masukkan lokasi_awal: ";
-                        cin >> lokasi_awal;
-                        cout << "\nMasukkan lokasi_tujuan: ";
-                        cin >> lokasi_tujuan;
+                        cout << "Masukkan destinasi 1: ";
+                        cin >> destinasi1;
+                        cout << "\nMasukkan destinasi 2: ";
+                        cin >> destinasi2;
                         cout << "\nMasukkan biaya: ";
                         cin >> biaya;
 
-                        cost_graph.addEdge(lokasi_awal, lokasi_tujuan, biaya);
+                        cost_graph.addEdge(destinasi1, destinasi2, biaya);
                         cout << "Lokasi berhasil ditambahkan" << endl;
                     } else if (menu2 == 2) {    
                         cost_graph.print();
