@@ -268,7 +268,8 @@ bool createAcc(Tree t) {
         return false;
     }
     
-    Customer c1(nama, alamat, email, notelp, password);
+    Customer c1;
+    c1.add(nama, email, alamat, notelp, password);
     cout << "Akun berhasil dibuat" << endl;
     return false;
 }
