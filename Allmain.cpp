@@ -660,8 +660,9 @@ int main() {
 
                         cout << "Masukkan tanggal: ";
                         cin >> tanggal;
+                        // getline(cin, tanggal);
                         cout << "Masukkan lokasi awal: ";
-                        cin >> source;
+                        getline(cin, source);
                         cout << "Masukkan lokasi tujuan: ";
                         getline(cin, destination);
                         cout << "Masukkan nama agent: ";
