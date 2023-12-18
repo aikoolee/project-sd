@@ -53,108 +53,6 @@ bool loginAdmin(Admin A[], int n) {
     return false;
 }
 
-// class Edge;
-// class GraphInt;
-// class GraphFloat;
-
-// bool add_edge(GraphInt &g1, GraphFloat &g2) {
-//     char a[30], b[30];
-//     int cost;
-//     float time;
-
-//     cout << "Masukkan lokasi awal: ";
-//     cin >> a;
-
-//     cout << "Masukkan lokasi tujuan: ";
-//     cin >> b;
-
-//     cout << "Masukkan biaya: ";
-//     cin >> cost;
-
-//     cout << "Masukkan jadwal keberangkatan: ";
-//     cin >> time;
-
-//     Edge e(a, b, cost, time);
-
-//     g1.addEdge(a, b, cost);
-//     g2.addEdge(a, b, time);
-//     cout << "Jadwal berhasil ditambahkan" << endl;
-//     return true;
-// }
-
-// GraphInt cost_graph;
-// GraphFloat time_graph;
-
-// void admin_portal() {
-//     bool admin_logged_in = true;
-
-//     if (admin_logged_in) {
-//         system("cls");
-//         cout << "--------------- WELCOME TO ADMIN PORTAL ---------------\n\n";
-//         int input;
-//         cout << "1: Tambah Lokasi\n";
-//         cout << "2: Lihat Semua Pelanggan\n";
-//         cout << "3: Lihat Semua Pemesanan\n";
-//         cout << "4: Kembali\n";
-//         cout << "5: Exit\n";
-//         cin >> input;
-
-//         switch (input) {
-//         case 1: {
-//             system("cls");
-//             add_edge(cost_graph, time_graph);
-//             cout << "\nPress any key, followed by 'enter' key, to navigate back!\n";
-//             char c;
-//             cin >> c;
-//             admin_portal();
-//             break;
-//         }
-//         case 2: {
-//             system("cls");
-//             viewCustomer();
-//             cout << "\nPress any key, followed by 'enter' key, to navigate back!\n";
-//             char c;
-//             cin >> c;
-//             admin_portal();
-//             break;
-//         }
-//         case 3: {
-//             viewBooking();
-//             viewCustomer();
-//             cout << "\nPress any key, followed by 'enter' key, to navigate back!\n";
-//             char c;
-//             cin >> c;
-//             admin_portal();
-//             break;
-//         }
-//         case 4: {
-//             system("cls");
-//             admin_logged_in = false;
-//             enter();
-//             break;
-//         }
-//         case 5: {
-//             system("cls");
-//             admin_logged_in = false;
-//             cout << "Thank you. We look forward to welcoming you back soon!\n";
-//             cout << "Exitting now...\n";
-//             break;
-//         }
-//         default: {
-//             cout << "\nInvalid input!\n";
-//             enter();
-//             }
-//         }
-//     }
-//     else {
-//         cout << "\nLogin failed. Please go back and enter the correct details.\n";
-//         cout << "\nPress any key, followed by 'enter' key, to navigate back!\n";
-//         char c;
-//         cin >> c;
-//         enter();
-//     }
-// }
-
 // --- AGENT ---
 
 struct Agent {
@@ -286,6 +184,95 @@ bool loginCustomer(Customer C[], int n) {
     return false;
 }
 
+struct treeNode {
+    char data;
+    unordered_map <char, treeNode*> child;
+    bool check;
+
+    treeNode(char data) {
+        this->data = data;
+        check = false;
+    }
+};
+
+struct Tree {
+    treeNode* root;
+    int count;
+    
+    Tree() {
+        root = new treeNode('0');
+        count = 0;
+    }
+
+    void insert(string email) {
+        treeNode* temp = root;
+        for (int i = 0; email[i] != '@'; i++) {
+            if (email[i] == '0'){
+                break;
+            }
+
+            char chr = email[i];
+            if (temp->child.count(chr)) {
+                temp = temp->child[chr];
+            } else {
+                treeNode* node = new treeNode(chr);
+                temp->child[chr] = node;
+                temp = node;
+            }
+        }
+        
+        temp->check = true;
+        count++;
+    }
+
+    bool search(string email) {
+        treeNode* temp = root;
+        for (int i = 0; email[i] != '@'; i++) {
+            if (email[i] == '0') {
+                break;
+            }
+
+            char chr = email[i];
+            if (temp->child.count(chr) == 0) {
+                return false;
+            }
+            
+            temp = temp->child[chr];
+        }
+        
+        return temp->check;
+    }
+};
+
+bool createAcc(Tree t) {
+    string nama;
+    string alamat;
+    string email;
+    string notelp;
+    string password;
+
+    cout << "Masukkan nama: ";
+    cin >> nama;
+    cout << "Masukkan alamat: ";
+    cin >> alamat;
+    cout << "Masukkan email: ";
+    cin >> email;
+    cout << "Masukkan nomor telepon: ";
+    cin >> notelp;
+    cout << "Masukkan password: ";
+    cin >> password;
+
+    bool check = t.search(email);
+    if (check) {
+        cout << "Email sudah digunakan. Coba email lain" << endl;
+        return false;
+    }
+    
+    Customer c1(nama, alamat, email, notelp, password);
+    cout << "Akun berhasil dibuat" << endl;
+    return false;
+}
+
 int main() {
     cout << "Menu:" << endl;
     cout << "1. Login Admin" << endl;
@@ -320,7 +307,10 @@ int main() {
         } else {
             cout << "Customer login failed. Please try again." << endl;
         }
+    } else if (menu == 3) {
+        
     }
+    
     
     return 0;
 }
