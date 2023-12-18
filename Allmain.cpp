@@ -514,7 +514,7 @@ void minimum_time(std::string src, std::string dest, vector<std::string>& path, 
 
 int main() {
     Admin admins[2];
-    Customer customers[2];
+    Customer customers[10];
     GraphInt cost_graph;
     map<string, string> parent;
     map<string, int> distance;
@@ -570,13 +570,17 @@ int main() {
 
                         cost_graph.addEdge(lokasi_awal, lokasi_tujuan, biaya);
                         cout << "Lokasi berhasil ditambahkan" << endl;
-                    } else if (menu2 == 2) {
+                    } else if (menu2 == 2) {    
                         cost_graph.print();
                     } else if (menu2 == 3) {
-                        for (int i = 0; i < cust_size; i++) {
-                            cout << "Customer details for " << customers[i].nama << ":\n";
-                            customers[i].print();
-                            cout << endl;
+                        if (cust_size <= 0) {
+                            cout << "No customer" << endl;
+                        } else {
+                            for (int i = 0; i < cust_size; i++) {
+                                cout << "Customer details for " << customers[i].nama << ":\n";
+                                customers[i].print();
+                                cout << endl;
+                            }
                         }
                     } else if (menu2 == 4) {
                         for (int i = 0; i < 2; i++) {
@@ -635,14 +639,40 @@ int main() {
                             cout << "To " << p.first << ": " << p.second << "\n";
                         }
                     } else if (menu2 == 2) {
-                        // Booking booking;
-                        // booking.book("Customer1", "customer1@example.com", "12 Januari 2023", 1000, 1, "Agent1");
+                        Booking booking;
+                        string nama = customers->nama;
+                        string email = customers->email;
+                        string tanggal;
+                        string source;
+                        string destination;
+                        int biaya = 0;
+                        int jumlah;
+                        string nama_agent;
 
-                        // for (int i = 0; i < 2; i++) {
-                        //     if (customers[i].nama == booking.nama_cust) {
-                        //         customers[i].history.insertBack(booking);
-                        //     }
-                        // }
+                        cout << "Masukkan tanggal: ";
+                        cin >> tanggal;
+                        cout << "Masukkan lokasi awal: ";
+                        cin >> source;
+                        cout << "Masukkan lokasi tujuan: ";
+                        cin >> destination;
+                        cout << "Masukkan nama agent: ";
+                        cin >> nama_agent;
+
+                        minimum_cost(source, parent, distance, cost_graph.m);
+
+                        for (const auto& p : distance) {
+                            if (destination == p.first) {
+                                biaya = p.second;
+                            }
+                        }
+
+                        booking.book(nama, email, tanggal, biaya, jumlah, nama_agent);
+
+                        for (int i = 0; i < 2; i++) {
+                            if (customers[i].nama == booking.nama_cust) {
+                                customers[i].history.insertBack(booking);
+                            }
+                        }
                     } else if (menu2 == 3) {
                         check2 = false;
                     }
