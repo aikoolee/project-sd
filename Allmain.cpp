@@ -509,7 +509,7 @@ int main() {
                     cout << endl;
                     cout << "Menu:" << endl;
                     cout << "1. Add a Location" << endl;
-                    cout << "2. View all locations" << endl;
+                    cout << "\n2. View all locations" << endl;
                     cout << "3. View all customers" << endl;
                     cout << "4. View all customer's history" << endl;
                     cout << "5. Exit" << endl;
@@ -528,6 +528,7 @@ int main() {
                         cout << "\nMasukkan destinasi 2: ";
                         cin >> destinasi2;
                         cout << "\nMasukkan biaya: ";
+                        cin.ignore();
                         cin >> biaya;
 
                         cost_graph.addEdge(destinasi1, destinasi2, biaya);
